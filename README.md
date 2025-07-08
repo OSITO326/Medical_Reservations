@@ -24,7 +24,7 @@ python -m venv venv
 ### Activate Virtual Environment
 
 ```bash
-. venv/bin/activate # if use linux o mac
+. venv/bin/activate # if use linux or mac
 ```
 
 ## Install packages 📦
@@ -32,6 +32,28 @@ python -m venv venv
 ```bash
 pip install -r requirements.txt
 ```
+
+---
+
+### Dump Data
+
+You choose, create manually all data information to try the app with admin panel, or dump the data app.
+
+- Dump data:
+
+```bash
+python manage.py loaddata dump_medical_reservation.json
+```
+
+With this command, we get the mook data for try the app, you see the data with admin panel `http://localhost:8000/admin`.
+
+```bash
+user -> admin
+email -> admin@admin.com
+pass -> admin
+```
+
+---
 
 ### Superuser Credentials
 
@@ -63,24 +85,6 @@ python manage.py runserver
 ### Admin panel
 
 `http://localhost:8000/admin/` and login with credential `superuser`, that we create early steps back.
-
-### Dump Data
-
-You choose, create manually all data information to try the app with admin panel, or dump the data app.
-
-- Dump data:
-
-```bash
-python manage.py loaddata dump_medical_reservation.json
-```
-
-With this command, we get the mook data for try the app, you see the data with admin panel.
-
-```bash
-user -> admin
-email -> admin@admin.com
-pass -> admin
-```
 
 ---
 
@@ -123,6 +127,7 @@ Well if you see the urls available, go to `http://localhost:8000` then you see s
 3. api/
 4. api/token/
 5. api/token/refresh
+6. api/swagger/
 
 > [!NOTE]
 > The admin panel allows us to make CRUDS more faster, instead of using requests for the routes.
