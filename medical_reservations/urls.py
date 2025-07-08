@@ -15,11 +15,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
+from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
+from rest_framework import permissions
 from rest_framework.routers import DefaultRouter
 
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
 
 from api.views import (
     AppointmentViewSet,
@@ -35,8 +40,26 @@ router.register(r'doctors', DoctorViewSet)
 router.register(r'patients', PatientViewSet)
 router.register(r'appointments', AppointmentViewSet)
 
+schema_view = get_schema_view(
+    openapi.Info(
+        title='Medical Reservations API',
+        default_version='v1',
+        description='App for managing medical appointments and reservations',
+        terms_of_service='https://www.google.com/policies/terms/',
+        contact=openapi.Contact(email='gooogle@gmail.com'),
+        license=openapi.License(name='MIT License'),
+    ),
+    public=True,
+    permission_classes=[permissions.AllowAny],
+)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path(
+        'api/swagger/',
+        schema_view.with_ui('swagger', cache_timeout=0),
+        name='schema-swagger-ui',
+    ),
     path(
         'api/appointments/schedule/',
         appointment_schedule_view,
