@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 from api.validators import email_validator, only_letters
@@ -14,6 +15,9 @@ class Specialty(models.Model):
 
 
 class Doctor(models.Model):
+    user = models.OneToOneField(
+        User, on_delete=models.CASCADE, related_name='doctor_profile'
+    )
     name = models.CharField(max_length=100, validators=[only_letters])
     last_name = models.CharField(max_length=100, validators=[only_letters])
     specialty = models.ForeignKey(Specialty, on_delete=models.CASCADE)
