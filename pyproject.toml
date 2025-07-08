@@ -3,6 +3,36 @@ line-length = 88
 target-version = "py313"
 
 [tool.ruff.format]
-quote-style = "single"
+quote-style = "single" # Usar comillas simples
 docstring-code-format = true
 docstring-code-line-length = 88
+
+[tool.ruff.lint]
+select = [
+  "E",  # pycodestyle
+  "F",  # pyflakes
+  "I",  # isort
+  "B",  # flake8-bugbear
+  "DJ", # flake8-django
+  "UP", # pyupgrade
+  "C90", # mccabe
+  "PL", # pylint
+  "RUF", # ruff-specific
+]
+ignore = [
+"E501", # longitud de línea (ya se controla por format)
+  "B008", # argumento mutable por defecto (a veces se usa en Django)
+  "DJ001", # modelo sin __str__, tú ya lo defines
+  "PLR0913", # demasiados argumentos en funciones (a veces útil en views o forms)
+]
+exclude = ["migrations/*", "__pycache__/*"]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+force-sort-within-sections = true
+
+[tool.black]
+line-length = 88
+target-version = ['py313']
+skip-string-normalization = true
+
