@@ -64,6 +64,26 @@ python manage.py runserver
 
 `http://localhost:8000/admin/` and login with credential `superuser`, that we create early steps back.
 
+### Dump Data
+
+You choose, create manually all data information to try the app with admin panel, or dump the data app.
+
+- Dump data:
+
+```bash
+python manage.py loaddata dump_medical_reservation.json
+```
+
+With this command, we get the mook data for try the app, you see the data with admin panel.
+
+```bash
+user -> admin
+email -> admin@admin.com
+pass -> admin
+```
+
+---
+
 ##### Create User for Doctors
 
 Add new user, for example I create two users:
