@@ -1,0 +1,14 @@
+{
+  "venvPath": ".",
+  "venv": ".venv",
+  "include": ["."],
+  "exclude": ["**/node_modules", "**/__pycache__", ".venv"],
+  "reportMissingTypeStubs": false,
+  "reportUnknownVariableType": false,
+  "reportUnknownMemberType": false,
+  "reportUnannotatedClassAttribute": false,
+  "reportUnknownParameterType": false,
+  "reportUnknownArgumentType": false,
+  "reportImplicitOverride": false,
+  "reportIncompatibleMethodOverride": false
+}
