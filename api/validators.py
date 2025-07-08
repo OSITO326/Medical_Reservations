@@ -2,9 +2,15 @@ from django.core.exceptions import ValidationError
 import re
 
 
+# def only_letters(value):
+#     if not re.match(r'^[A-Za-z ]+$', value):
+#         raise ValidationError('Only letters are allowed.')
+## only_letters include áéíóúñ
 def only_letters(value):
-    if not re.match(r'^[A-Za-z ]+$', value):
-        raise ValidationError('Only letters are allowed.')
+    if not re.match(r'^[A-Za-záéíóúñÁÉÍÓÚÑ ]+$', value):
+        raise ValidationError(
+            'Only letters are allowed, including accented characters.'
+        )
 
 
 def email_validator(value):
