@@ -50,7 +50,7 @@ With this command, we get the mook data for try the app, you see the data with a
 ```bash
 user -> admin
 email -> admin@admin.com
-pass -> admin
+password -> admin
 ```
 
 ---
@@ -66,7 +66,7 @@ python manage.py createsuperuser
 ```bash
 user -> admin
 email -> admin@admin.com
-pass -> admin
+password -> admin
 ```
 
 ### Make migrations on Database
