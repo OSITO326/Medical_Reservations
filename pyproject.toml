@@ -20,7 +20,7 @@ select = [
   "RUF", # ruff-specific
 ]
 ignore = [
-"E501", # longitud de línea (ya se controla por format)
+  "E501", # longitud de línea (ya se controla por format)
   "B008", # argumento mutable por defecto (a veces se usa en Django)
   "DJ001", # modelo sin __str__, tú ya lo defines
   "PLR0913", # demasiados argumentos en funciones (a veces útil en views o forms)
